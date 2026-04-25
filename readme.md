@@ -3,7 +3,7 @@
 
 Based on other users who have dissembled the D8U, the CPU cooler that’s been installed is a HP Probook compatible cooler, part no.s 905706-001, 912932, and L52034-001 – this was confirmed by a user on Discord dissembling their unit and viewing the QR codes on the cooler.
 
-![thermal-1](imgs\thermal-1.png)
+![thermal-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-1.png?raw=true))
 
 
 This cooling solution is designed to be used with CPUs with 15–45W, whereas the Intel 125H can reach 60–80W.
@@ -14,9 +14,9 @@ The lack of appropriate CPU cooling is amplified by the fact that the D8U models
 
 There is ample room within the D8U chassis for intake fans to be installed from the factory:
 
-![thermal-2](imgs\thermal-2.png)
+![thermal-2](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-2.png?raw=true)
 
-![thermal-3](imgs\thermal-3.png)
+![thermal-3](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-3.png?raw=true)
 
 
 The fan module that Zettlab has chosen to implement also does not follow standard design practices. Most PWM fans follow 0-255 for their settings, the Zettlab module uses 0-183 and is not plug and play with third-party operating systems. If a user wants to install TrueNAS, Unraid, Ubuntu or anything else they need to compile the driver for the fan module and then use a script to convert the 0-183 range into a standard 0-225 range for fan control software to work as Zettlab have not provided a fan driver.
@@ -25,23 +25,23 @@ The fan module that Zettlab has chosen to implement also does not follow standar
 
 ##### Zettlab data:
 On the discord server Zettlab have shown this thermal data citing that the D8U units have no thermal throttling problems
-![thermal-4](imgs\thermal-4.png)
+![thermal-4](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-4.png?raw=true)
 
-![thermal-5](imgs\thermal-5.png)
+![thermal-5](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-5.png?raw=true)
 
 ##### Real world user data:
 
 It should be noted in every single test, real world data shows the CPU is up to 30c higher than Zettlab's claimed thermal results and in most testing is causing the CPU to thermal throttle while the CPU fan is running significantly faster
 
-![thermal-6](imgs\thermal-6.png)
+![thermal-6](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-6.png?raw=true)
 
-![thermal-7](imgs\thermal-7.png)
+![thermal-7](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-7.png?raw=true)
 
-![thermal-8](imgs\thermal-8.png)
+![thermal-8](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-8.png?raw=true)
 
-![thermal-9](imgs\thermal-9.png)
+![thermal-9](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-9.png?raw=true)
 
-![thermal-10](imgs\thermal-10.png)
+![thermal-10](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/thermal-10.png?raw=true)
 
 #### Conclusions:
 From a hardware perspective; Zettlab have chosen a CPU cooler that is not appropriate for the Intel Ultra 5 125H. Additionally the CPU blower does not receive enough fresh air due to the lack of any active air intakes 
@@ -58,15 +58,15 @@ The HDD backplane that Zettlab have implemented into the D8U is extremely flawed
 
 Zettlab have opted to put all 8 HDDs on a single PCIe 4x connector, without providing any auxiliary power to the hard drive backplane and are relying solely on the PCIe slot for power delivery.
 
-![backplane-1](imgs\backplane-1.png)
+![backplane-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/backplane-1.png?raw=true)
 
 **Zettlab have claimed that they're using a custom design for the PCIe slot**
 
-![backplane-2](imgs\backplane-2.png)
+![backplane-2](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/backplane-2.png?raw=true)
 
-![backplane-3](imgs\backplane-3.png)
+![backplane-3](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/backplane-3.png?raw=true)
 
-![backplane-4](imgs\backplane-3.png)
+![backplane-4](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/backplane-4.png?raw=true)
 
 It should be noted that the power limitation is not a protocol or interface restriction, it is a mechanical and electrical limitation of the PCIe connector itself, and Zettlab are using the PCIe connector for power delivery.
 
@@ -83,37 +83,37 @@ The idle power draw alone is nearly double what a PCIe 4x slot is rated for. Thi
 This can be seen here on all 8 drives:
 
 **Disk A:**
-![disk-a](imgs\disk-a.png)
+![disk-a](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-a.png?raw=true)
 
 **Disk B:**
-![disk-ab](imgs\disk-b.png)
+![disk-b](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-b.png?raw=true)
 
 **Disk C:**
-![disk-c](imgs\disk-c.png)
+![disk-c](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-c.png?raw=true)
 
 **Disk D:**
-![disk-d](imgs\disk-d.png)
+![disk-d](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-d.png?raw=true)
 
 **Disk E:**
-![disk-e](imgs\disk-e.png)
+![disk-e](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-e.png?raw=true)
 
 **Disk F:**
-![disk-f](imgs\disk-f.png)
+![disk-f](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-f.png?raw=true)
 
 **Disk G:**
-![disk-g](imgs\disk-g.png)
+![disk-g](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-g.png?raw=true)
 
 **Disk H:**
-![disk-h](imgs\disk-h.png)
+![disk-h](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-h.png?raw=true)
 
 The constant fluctuations in power causing to the HDDs to constantly disconnect and reconnect leads to irreparable data loss and file corruption and potentially HDD destruction:
 
 **Capture of a RAIDZ1  pool running on Unraid. 278,600 checksum errors:**
-![disk-error-1](imgs\disk-error-1.png)
+![disk-error-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-error-1.png?raw=true)
 
 
 **This lack of consistent power delivery has already destroyed a customer hard drive:**
-![disk-error-2](imgs\disk-error-2.png)
+![disk-error-2](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-error-2.png?raw=true)
 
 
 ##### SATA Speeds
@@ -144,7 +144,7 @@ With how far out of specification the PCIe connector is being used, it's not unr
 
 It is reasonable to assume these electrical concerns also apply to the D6U models based on Zettlab's comments:
 
-![conclusion-1](imgs\conclusion-1.png)
+![conclusion-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/conclusion-1.png?raw=true)
 
 Running less than 3 HDDs should not exceed the limitations of the PCIe 4x slot and ideally prevent damage to user hardware and data.
 
@@ -157,7 +157,7 @@ The D8U in particular suffers the most from these hardware design choices and ha
 Unfortunately due the nature of these hardware concerns, an end user is not capable of rectifying them as they are all internal components that would require disassembly to access. and not something covered by the Kickstarter warranty
 
 **Kickstarter Warranty**
-![conclusion-2](imgs\conclusion-2.png)
+![conclusion-2](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/conclusion-2.png?raw=true)
 
 My personal recommendation is that any D8U unit should be shut down for the time being to avoid any more potential damage to user HDDs and data.
 
