@@ -109,10 +109,12 @@ This can be seen here on all 8 drives:
 The constant fluctuations in power causing to the HDDs to constantly disconnect and reconnect leads to irreparable data loss and file corruption and potentially HDD destruction:
 
 **Capture of a RAIDZ1  pool running on Unraid. 278,600 checksum errors:**
+
 ![disk-error-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-error-1.png?raw=true)
 
 
 **This lack of consistent power delivery has already destroyed a customer hard drive:**
+
 ![disk-error-2](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-error-2.png?raw=true)
 
 
