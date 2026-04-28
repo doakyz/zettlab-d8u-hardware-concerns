@@ -164,3 +164,18 @@ Unfortunately due the nature of these hardware concerns, an end user is not capa
 My personal recommendation is that any D8U unit should be shut down for the time being to avoid any more potential damage to user HDDs and data.
 
 
+## Community Credits & Guides
+
+* @CheesyGiblets - Photos of system internals and extensive hardware testing.
+
+* @Speedster (Haveacry / Dean Holland) -  DKMS‑compatible kernel driver exposing the Zettlab D6U/D8U fan controller via hwmon. https://github.com/Haveacry/zettlab-d8-fans
+    * Comparative thermal benchmarks and data
+
+* @Henry (Henry Wong) - Detailed documentation and tooling for installing and running Ubuntu on Zettlab D6U/D8U systems. https://github.com/henryxwong/zettlab-ubuntu
+ 
+* @Alex (Ceveos) - Alternative TrueNAS fan control approach community contribution demonstrating fan control and TrueNAS operation on Zettlab D6U/D8U hardware. https://github.com/Ceveos/zettlab-d8-fans-truenas
+
+* @Marshal (mvanas) - A  configuration guide for TrueNAS SCALE 26.  https://github.com/mvanas/zettlab-truenas
+    * Insight on the configuration of the PCIe 4x slot
+
+* @mike_whiskey - Logs of a HDD damaged within a D8U
