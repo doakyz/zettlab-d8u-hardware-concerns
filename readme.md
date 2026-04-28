@@ -79,6 +79,7 @@ Looking at an average Seagate enterprise drive power consumption and then multip
 | ---------- | ---------- | -------------- |
 | Single HDD | 5.3        | 9.4            |
 | 8 HDDs     | 42.4       | 75.2           |
+
 The idle power draw alone is nearly double what a PCIe 4x slot is rated for. This lack of appropriate power delivery causes all HDDs connected to the backplane to disconnect and reconnect as they're losing their electrical signal.
 This can be seen here on all 8 drives:
 
