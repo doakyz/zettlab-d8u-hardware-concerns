@@ -1,3 +1,12 @@
+### Update 04/05/2026
+Zettlab have provided an initial public response to the concerns about the hardware design.
+
+A copy has been uploaded to this repo, 
+
+Zettlab have provided the design documentation of physical PCIe 4x connector, showing they're using a non-standard implementation of the pin-out to deliver more power.
+Issues relating to SATA speed remain un-answered
+
+Based on this update, many of the concerns and recorded data from multiple users having HDD related issues have been blamed on poor QC and damaged components.
 
 ### Thermal design
 
@@ -68,11 +77,17 @@ Zettlab have opted to put all 8 HDDs on a single PCIe 4x connector, without prov
 
 ![backplane-4](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/backplane-4.png?raw=true)
 
-It should be noted that the power limitation is not a protocol or interface restriction, it is a mechanical and electrical limitation of the PCIe connector itself, and Zettlab are using the PCIe connector for power delivery.
+
+Update 1:
+This has been proven true based on the provided design documentation
+
+
+~~It should be noted that the power limitation is not a protocol or interface restriction, it is a mechanical and electrical limitation of the PCIe connector itself, and Zettlab are using the PCIe connector for power delivery.~~~
 
 ##### PCIe 4x Power 
 
-A PCIe 4x slot, regardless of claims, is designed to to deliver a maximum of **25W**
+A PCIe 4x slot, ~~regardless of claims~~, is designed to to deliver a maximum of **25W** by default
+
 Looking at an average Seagate enterprise drive power consumption and then multiplying by 8
 
 |            | **Idle W** | **Max Load W** |
@@ -82,6 +97,9 @@ Looking at an average Seagate enterprise drive power consumption and then multip
 
 The idle power draw alone is nearly double what a PCIe 4x slot is rated for. This lack of appropriate power delivery causes all HDDs connected to the backplane to disconnect and reconnect as they're losing their electrical signal.
 This can be seen here on all 8 drives:
+
+Update 1: 
+Based on Zettlab's initial reply to concerns, this is potentially related to faulty PCBs
 
 **Disk A:**
 ![disk-a](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-a.png?raw=true)
@@ -108,6 +126,7 @@ This can be seen here on all 8 drives:
 ![disk-h](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/disk-h.png?raw=true)
 
 The constant fluctuations in power causing to the HDDs to constantly disconnect and reconnect leads to irreparable data loss and file corruption and potentially HDD destruction:
+
 
 **Capture of a RAIDZ1  pool running on Unraid. 278,600 checksum errors:**
 
@@ -141,15 +160,18 @@ The Intel 7e63 SATA controller does support SATA3 speeds, however due to the lim
 This difference in SATA connection speeds limits any RAID operations to the SATA2 speeds of the drives connected to the Intel 7e63 - effectively halving what should be available to users.
 
 #### Conclusions:
-The Zettlab D8U is not safe to run with 8 HDDs installed into it. The inadequate power delivery system will cause data corruption, and eventually cause damage to any HDD that is constantly disconnecting and reconnecting. 
+The Zettlab D8U is not safe to run with 8 HDDs installed into it. ~~The inadequate power delivery system~~ will cause data corruption, and eventually cause damage to any HDD that is constantly disconnecting and reconnecting. 
 
-With how far out of specification the PCIe connector is being used, it's not unreasonable to conclude the device is a potential fire risk.
+~~With how far out of specification the PCIe connector is being used, it's not unreasonable to conclude the device is a potential fire risk.~~
 
 It is reasonable to assume these electrical concerns also apply to the D6U models based on Zettlab's comments:
 
 ![conclusion-1](https://github.com/doakyz/zettlab-d8u-hardware-concerns/blob/main/imgs/conclusion-1.png?raw=true)
 
 Running less than 3 HDDs should not exceed the limitations of the PCIe 4x slot and ideally prevent damage to user hardware and data.
+
+Update 1: This conclusion was reached based on data seen within other NAS units with insufficient power delivery for the backplane PCB. The issues with the D8U may not be fully related to the PCIe 4x connector, as Zettlab have found that multiple shipped PCBs are faulty
+
 
 ### Final Thoughts
 
@@ -164,6 +186,11 @@ Unfortunately due the nature of these hardware concerns, an end user is not capa
 
 My personal recommendation is that any D8U unit should be shut down for the time being to avoid any more potential damage to user HDDs and data.
 
+Update 1:
+
+Based on Zettlab's reply to hardware concerns, my overall conclusion doesn't change. Now that more context has been provided by Zettlab, it raises more questions than it answers. The lack of QC for critical components is concerning, and seemingly untested assumptions for the thermal solution is not ideal.
+
+While not examined in this breakdown as this primarily focuses on hardware issues, Zettlab have stated that the logs they've been collecting from users since launch have not been fully desensitized - requiring users to opt-out of logging with no planned fix until the June–July period. This would be roughly 8-9 months of logs collected from users who have not opted out.
 
 ## Community Credits & Guides
 
